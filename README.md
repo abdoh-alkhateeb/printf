@@ -1,2 +1,2 @@
 # printf
-This project involves creating a faithful replica of the standard C library's printf function.
+This project involves creating a faithful replica of the standard C library's printf function. The goal of this project is to develop a function that emulates the behavior of the original printf while providing insights into its internal workings. By reverse engineering the core functionality of printf, developers can deepen their understanding of formatting, string manipulation, and variable argument handling in C programming.
