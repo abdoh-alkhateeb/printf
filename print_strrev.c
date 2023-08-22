@@ -13,7 +13,7 @@ unsigned int print_strrev(char *str)
 	unsigned int count = 0;
 
 	if (str == NULL)
-		print_str(str);
+		return (print_str(str));
 
 	if (*str)
 	{
