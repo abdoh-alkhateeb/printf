@@ -8,9 +8,9 @@
  * Return: number of characters printed, and if an
  * error is encountered, exits with status code -1;
  */
-int print_addr(void *ptr)
+unsigned int print_addr(void *ptr)
 {
-	int count = 0;
+	unsigned int count = 0;
 	unsigned long int num = (unsigned long int)ptr;
 	unsigned long int temp = num, divisor = 1;
 	unsigned char digit;

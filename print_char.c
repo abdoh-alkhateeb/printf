@@ -8,11 +8,11 @@
  * Return: 1, and if an error is encountered, exits
  * with status code -1;
  */
-int print_char(char c)
+unsigned int print_char(char c)
 {
-	int count = write(1, &c, 1);
+	unsigned int count = write(1, &c, 1);
 
-	if (count == -1)
+	if ((int)count == -1)
 		exit(-1);
 
 	return (count);

@@ -8,10 +8,10 @@
  * Return: number of characters printed, and if an
  * error is encountered, exits with status code -1;
  */
-int print_str(char *str)
+unsigned int print_str(char *str)
 {
-	size_t len;
-	int count;
+	unsigned int len;
+	unsigned int count;
 
 	if (str == NULL)
 		str = "(null)";
@@ -21,7 +21,7 @@ int print_str(char *str)
 
 	count = write(1, str, len);
 
-	if (count == -1)
+	if ((int)count == -1)
 		exit(-1);
 
 	return (count);

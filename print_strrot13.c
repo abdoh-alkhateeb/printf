@@ -8,9 +8,9 @@
  * Return: number of characters printed, and if an
  * error is encountered, exits with status code -1;
  */
-int print_strrot13(char *str)
+unsigned int print_strrot13(char *str)
 {
-	int i, count = 0;
+	unsigned int i, count = 0;
 
 	if (str == NULL)
 		return (print_str(str));

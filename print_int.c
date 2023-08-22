@@ -7,9 +7,9 @@
  * Return: number of characters printed, and if an
  * error is encountered, exits with status code -1;
  */
-int print_int(int num)
+unsigned int print_int(int num)
 {
-	int count = 0;
+	unsigned int count = 0;
 	unsigned int temp, divisor, digit;
 
 	if (num < 0)

@@ -9,9 +9,9 @@
  * Return: number of characters printed, and if an
  * error is encountered, exits with status code -1;
  */
-int print_hex(unsigned int num, int uppercase)
+unsigned int print_hex(unsigned int num, int uppercase)
 {
-	int count = 0;
+	unsigned int count = 0;
 	unsigned int temp = num, divisor = 1, digit;
 
 	while (temp > 15)
