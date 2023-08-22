@@ -9,5 +9,7 @@ int print_bin(unsigned int);
 int print_uint(unsigned int);
 int print_oct(unsigned int);
 int print_hex(unsigned int, int);
+int print_strrot13(char *);
+int print_strrev(char *);
 
 #endif /* _MAIN_H_ */

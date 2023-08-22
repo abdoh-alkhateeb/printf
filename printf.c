@@ -13,44 +13,46 @@
  */
 void handle_specifier(char specifier, va_list *args_ptr, int *count_ptr)
 {
-	int count;
-
 	switch (specifier)
 	{
 	case 's':
-		count = print_str(va_arg(*args_ptr, char *));
+		*count_ptr += print_str(va_arg(*args_ptr, char *));
+		break;
+	case 'r':
+		*count_ptr += print_strrev(va_arg(*args_ptr, char *));
+		break;
+	case 'R':
+		*count_ptr += print_strrot13(va_arg(*args_ptr, char *));
 		break;
 	case 'c':
-		count = print_char(va_arg(*args_ptr, int));
+		*count_ptr += print_char(va_arg(*args_ptr, int));
 		break;
 	case 'i':
 	case 'd':
-		count = print_int(va_arg(*args_ptr, int));
+		*count_ptr += print_int(va_arg(*args_ptr, int));
 		break;
 	case 'u':
-		count = print_uint(va_arg(*args_ptr, unsigned int));
+		*count_ptr += print_uint(va_arg(*args_ptr, unsigned int));
 		break;
 	case 'b':
-		count = print_bin(va_arg(*args_ptr, unsigned int));
+		*count_ptr += print_bin(va_arg(*args_ptr, unsigned int));
 		break;
 	case 'o':
-		count = print_oct(va_arg(*args_ptr, unsigned int));
+		*count_ptr += print_oct(va_arg(*args_ptr, unsigned int));
 		break;
 	case 'x':
-		count = print_hex(va_arg(*args_ptr, unsigned int), 0);
+		*count_ptr += print_hex(va_arg(*args_ptr, unsigned int), 0);
 		break;
 	case 'X':
-		count = print_hex(va_arg(*args_ptr, unsigned int), 1);
+		*count_ptr += print_hex(va_arg(*args_ptr, unsigned int), 1);
 		break;
 	case '%':
-		count = print_char('%');
+		*count_ptr += print_char('%');
 		break;
 	default:
-		count = print_char('%');
-		count += print_char(specifier);
+		*count_ptr += print_char('%');
+		*count_ptr += print_char(specifier);
 	}
-
-	*count_ptr += count;
 }
 
 /**
