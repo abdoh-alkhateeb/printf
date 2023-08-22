@@ -12,5 +12,6 @@ unsigned int print_hex(unsigned int, int);
 unsigned int print_strrot13(char *);
 unsigned int print_strrev(char *);
 unsigned int print_addr(void *);
+unsigned int print_xstr(char *);
 
 #endif /* _MAIN_H_ */

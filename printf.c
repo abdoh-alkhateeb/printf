@@ -57,6 +57,9 @@ void handle_specifier(char specifier, va_list *args_ptr, int *count_ptr)
 	case 's':
 		*count_ptr += print_str(va_arg(*args_ptr, char *));
 		break;
+	case 'S':
+		*count_ptr += print_xstr(va_arg(*args_ptr, char *));
+		break;
 	case 'r':
 		*count_ptr += print_strrev(va_arg(*args_ptr, char *));
 		break;
