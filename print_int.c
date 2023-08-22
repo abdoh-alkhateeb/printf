@@ -9,12 +9,12 @@
  */
 int print_int(int num)
 {
-	int status = 0;
+	int count = 0;
 	unsigned int temp, divisor, digit;
 
 	if (num < 0)
 	{
-		status += print_char('-');
+		count += print_char('-');
 		num = -num;
 	}
 
@@ -30,11 +30,11 @@ int print_int(int num)
 	while (divisor > 0)
 	{
 		digit = num / divisor;
-		status += print_char('0' + digit);
+		count += print_char('0' + digit);
 
 		num %= divisor;
 		divisor /= 10;
 	}
 
-	return (status);
+	return (count);
 }

@@ -3,8 +3,47 @@
 #include "main.h"
 
 /**
+ * handle_number_specifier - a function that calls the appropriate function
+ * for a specifier that deals with numbers in different bases and handles
+ * associated logic.
+ * @specifier: character that will be checked.
+ * @args_ptr: pointer to the arguments list.
+ * @count_ptr: pointer to the characters printed count variable.
+ *
+ * Return: nothing.
+ */
+void handle_number_specifier(char specifier, va_list *args_ptr, int *count_ptr)
+{
+	switch (specifier)
+	{
+	case 'i':
+	case 'd':
+		*count_ptr += print_int(va_arg(*args_ptr, int));
+		break;
+	case 'u':
+		*count_ptr += print_uint(va_arg(*args_ptr, unsigned int));
+		break;
+	case 'b':
+		*count_ptr += print_bin(va_arg(*args_ptr, unsigned int));
+		break;
+	case 'o':
+		*count_ptr += print_oct(va_arg(*args_ptr, unsigned int));
+		break;
+	case 'x':
+		*count_ptr += print_hex(va_arg(*args_ptr, unsigned int), 0);
+		break;
+	case 'X':
+		*count_ptr += print_hex(va_arg(*args_ptr, unsigned int), 1);
+		break;
+	default:
+		*count_ptr += print_char('%');
+		*count_ptr += print_char(specifier);
+	}
+}
+
+/**
  * handle_specifier - a function that calls the appropriate function
- * for a specifier and handle associated logic.
+ * for a specifier and handles associated logic.
  * @specifier: character that will be checked.
  * @args_ptr: pointer to the arguments list.
  * @count_ptr: pointer to the characters printed count variable.
@@ -27,31 +66,11 @@ void handle_specifier(char specifier, va_list *args_ptr, int *count_ptr)
 	case 'c':
 		*count_ptr += print_char(va_arg(*args_ptr, int));
 		break;
-	case 'i':
-	case 'd':
-		*count_ptr += print_int(va_arg(*args_ptr, int));
-		break;
-	case 'u':
-		*count_ptr += print_uint(va_arg(*args_ptr, unsigned int));
-		break;
-	case 'b':
-		*count_ptr += print_bin(va_arg(*args_ptr, unsigned int));
-		break;
-	case 'o':
-		*count_ptr += print_oct(va_arg(*args_ptr, unsigned int));
-		break;
-	case 'x':
-		*count_ptr += print_hex(va_arg(*args_ptr, unsigned int), 0);
-		break;
-	case 'X':
-		*count_ptr += print_hex(va_arg(*args_ptr, unsigned int), 1);
-		break;
 	case '%':
 		*count_ptr += print_char('%');
 		break;
 	default:
-		*count_ptr += print_char('%');
-		*count_ptr += print_char(specifier);
+		handle_number_specifier(specifier, args_ptr, count_ptr);
 	}
 }
 

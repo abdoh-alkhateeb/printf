@@ -10,10 +10,10 @@
  */
 int print_char(char c)
 {
-	int status = write(1, &c, 1);
+	int count = write(1, &c, 1);
 
-	if (status == -1)
+	if (count == -1)
 		exit(-1);
 
-	return (status);
+	return (count);
 }

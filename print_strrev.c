@@ -10,16 +10,16 @@
  */
 int print_strrev(char *str)
 {
-	int status = 0;
+	int count = 0;
 
 	if (str == NULL)
 		print_str(str);
 
 	if (*str)
 	{
-		status += print_strrev(str + 1);
-		status += print_char(*str);
+		count += print_strrev(str + 1);
+		count += print_char(*str);
 	}
 
-	return (status);
+	return (count);
 }

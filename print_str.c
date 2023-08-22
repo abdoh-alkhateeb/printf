@@ -11,7 +11,7 @@
 int print_str(char *str)
 {
 	size_t len;
-	int status;
+	int count;
 
 	if (str == NULL)
 		str = "(null)";
@@ -19,10 +19,10 @@ int print_str(char *str)
 	for (len = 0; str[len] != '\0'; len++)
 		;
 
-	status = write(1, str, len);
+	count = write(1, str, len);
 
-	if (status == -1)
+	if (count == -1)
 		exit(-1);
 
-	return (status);
+	return (count);
 }

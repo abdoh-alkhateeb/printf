@@ -11,11 +11,8 @@
  */
 int print_hex(unsigned int num, int uppercase)
 {
-	int status = 0;
-	unsigned int temp, divisor, digit;
-
-	divisor = 1;
-	temp = num;
+	int count = 0;
+	unsigned int temp = num, divisor = 1, digit;
 
 	while (temp > 15)
 	{
@@ -27,13 +24,13 @@ int print_hex(unsigned int num, int uppercase)
 	{
 		digit = num / divisor;
 		if (digit > 9)
-			status += print_char((uppercase ? 'A' : 'a') + digit % 9 - 1);
+			count += print_char((uppercase ? 'A' : 'a') + digit % 9 - 1);
 		else
-			status += print_char('0' + digit);
+			count += print_char('0' + digit);
 
 		num %= divisor;
 		divisor /= 16;
 	}
 
-	return (status);
+	return (count);
 }

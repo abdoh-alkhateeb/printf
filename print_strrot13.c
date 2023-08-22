@@ -10,7 +10,7 @@
  */
 int print_strrot13(char *str)
 {
-	int i, status = 0;
+	int i, count = 0;
 
 	if (str == NULL)
 		return (print_str(str));
@@ -18,12 +18,12 @@ int print_strrot13(char *str)
 	for (i = 0; str[i] != '\0'; i++)
 	{
 		if (str[i] >= 'a' && str[i] <= 'z')
-			status += print_char('a' + (str[i] - 'a' + 13) % 26);
+			count += print_char('a' + (str[i] - 'a' + 13) % 26);
 		else if (str[i] >= 'A' && str[i] <= 'Z')
-			status += print_char('A' + (str[i] - 'A' + 13) % 26);
+			count += print_char('A' + (str[i] - 'A' + 13) % 26);
 		else
-			status += print_char(str[i]);
+			count += print_char(str[i]);
 	}
 
-	return (status);
+	return (count);
 }

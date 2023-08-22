@@ -9,11 +9,8 @@
  */
 int print_oct(unsigned int num)
 {
-	int status = 0;
-	unsigned int temp, divisor, digit;
-
-	divisor = 1;
-	temp = num;
+	int count = 0;
+	unsigned int temp = num, divisor = 1, digit;
 
 	while (temp > 7)
 	{
@@ -24,11 +21,11 @@ int print_oct(unsigned int num)
 	while (divisor > 0)
 	{
 		digit = num / divisor;
-		status += print_char('0' + digit);
+		count += print_char('0' + digit);
 
 		num %= divisor;
 		divisor /= 8;
 	}
 
-	return (status);
+	return (count);
 }
