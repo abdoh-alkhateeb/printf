@@ -11,5 +11,6 @@ int print_oct(unsigned int);
 int print_hex(unsigned int, int);
 int print_strrot13(char *);
 int print_strrev(char *);
+int print_addr(void *);
 
 #endif /* _MAIN_H_ */

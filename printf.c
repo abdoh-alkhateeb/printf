@@ -66,6 +66,9 @@ void handle_specifier(char specifier, va_list *args_ptr, int *count_ptr)
 	case 'c':
 		*count_ptr += print_char(va_arg(*args_ptr, int));
 		break;
+	case 'p':
+		*count_ptr += print_addr(va_arg(*args_ptr, void *));
+		break;
 	case '%':
 		*count_ptr += print_char('%');
 		break;
