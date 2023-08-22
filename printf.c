@@ -27,6 +27,21 @@ void handle_specifier(char specifier, va_list *args_ptr, int *count_ptr)
 	case 'd':
 		count = print_int(va_arg(*args_ptr, int));
 		break;
+	case 'u':
+		count = print_uint(va_arg(*args_ptr, unsigned int));
+		break;
+	case 'b':
+		count = print_bin(va_arg(*args_ptr, unsigned int));
+		break;
+	case 'o':
+		count = print_oct(va_arg(*args_ptr, unsigned int));
+		break;
+	case 'x':
+		count = print_hex(va_arg(*args_ptr, unsigned int), 0);
+		break;
+	case 'X':
+		count = print_hex(va_arg(*args_ptr, unsigned int), 1);
+		break;
 	case '%':
 		count = print_char('%');
 		break;
